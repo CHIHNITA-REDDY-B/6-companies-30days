@@ -1,0 +1,8 @@
+class Solution:
+    def checkOverlap(self, r: int, x_c: int, y_c: int, x1: int, y1: int, x2: int, y2: int) -> bool:
+        nearest_x = max(x1, min(x2, x_c))
+        nearest_y = max(y1, min(y2, y_c))
+        dist_x = nearest_x - x_c
+        dist_y = nearest_y - y_c
+
+        return dist_x ** 2 + dist_y ** 2 <= r ** 2
