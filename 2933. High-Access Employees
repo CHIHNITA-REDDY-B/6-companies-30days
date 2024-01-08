@@ -1,0 +1,19 @@
+from collections import defaultdict
+from typing import List
+
+class Solution:
+    def findHighAccessEmployees(self, a_times: List[List[str]]) -> List[str]:
+        e_dict = defaultdict(list)
+        for e, t in a_times:
+            e_dict[e].append(int(t))
+
+        res = []
+        for e, t in e_dict.items():
+            t.sort()
+            n = len(t)
+            for i in range(n - 2):
+                if t[i + 2] - t[i] < 100:
+                    res.append(e)
+                    break
+
+        return res
